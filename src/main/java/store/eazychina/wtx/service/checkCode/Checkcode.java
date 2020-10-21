@@ -37,10 +37,9 @@ public class Checkcode extends HttpServlet {
 		String a=	(String) session.getAttribute("count");
 		System.out.println(a);
 		if(a.equals(code)){
-			System.out.println("��֤��������ȷ");
+			System.out.println("验证码正确");
 ////			session.setAttribute("truefalse", "1");
 			truefalse="1";
-//			����,��ȡ��map�󲻻�ȡ��ֵ...
 //			PrintWriter out = response.getWriter();
 //			out.write(truefalse);
 //			PrintWriter out = response.getWriter();
@@ -57,10 +56,7 @@ public class Checkcode extends HttpServlet {
 			response.setContentType("text/html;charset=utf-8");
 			truefalse="0";
 			response.getWriter().println(truefalse);
-			System.out.println("��֤���������");
+			System.out.println("验证码错误");
 		}
-		 
-		
-		
 	}
 	}

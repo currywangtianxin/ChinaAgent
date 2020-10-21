@@ -21,15 +21,9 @@ public class SendEmailTest {
     @Value("${mail.sendText}")
     String sendText;
  
-    /**
-    * Description �ʼ����Ͷ�ʱ����ʾ����ÿ������ִ��һ��
-    * @author WEIQI
-    * @param
-    * @createDate 2019/6/14 17:38
-    **/
     @Scheduled(cron = "*/5 * * * * ?")
     public void timingSendMail() {
-        log.info("*** �ʼ����Ͷ�ʱ���� ***");
+        log.info("");
  
 //        javaMailSender.send(new SendMailUtil().sendIdentifyingCode(subject, sendText, sendText));
     }

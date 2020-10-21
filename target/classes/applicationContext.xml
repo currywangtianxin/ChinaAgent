@@ -16,7 +16,7 @@
 <!-- 引入约束 --> 
   
 <!-- 注解实例化 -->
-<context:component-scan base-package="com.tledu.zrz"/>
+<context:component-scan base-package="store.eazychina.wtx"/>
 
 <!-- 注解注入 -->
 <context:annotation-config/>
@@ -98,7 +98,7 @@
 		<property name="exceptionMappings">
 			<props>
 				<!-- 当捕捉到UserException异常之后,跳转到error页面 -->
-				<prop key="store.wtx.exception.SSMException">error</prop>
+				<prop key="store.eazychian.wtx.exception.SSMException">error</prop>
 			</props>
 		</property>
 	</bean>
