@@ -243,7 +243,7 @@
 
 	<build>
 		<!-- 和项目名一致 -->
-		<finalName>maven_ssm</finalName>
+		<finalName>ChinaAgent</finalName>
 		<!-- maven打包(war)或(jar) 时  ,只会找resources下的xml,我们mybatis的xml一般在mapper中,这样就会导致不能被打包进入 -->
 		<resources>
 		<resource>
@@ -285,7 +285,7 @@
 					<version>2.2</version>
 					<configuration>
 							<port>8080</port>
-							<!-- 找到finalName 也就是maven_ssm -->
+							<!-- 找到finalName 也就是ChinaAgent -->
 							<path>/${project.build.finalName}</path>
 							<!-- maven 配置中server标签的id -->
 							<server>mytomcat</server>
