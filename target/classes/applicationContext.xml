@@ -35,8 +35,18 @@
 	<!-- 加载jdbc配置文件 -->
 	<!-- classpath: 也可以不加,加上之后就会去src下找 -->
 	<context:property-placeholder location="classpath:jdbc.properties" />
-  
-  
+  	
+  	
+        <!-- 指定http返回编码格式，不然返回ajax请求json会出现中文乱码 -->
+  			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                        <value>*/*;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
   
 	<!-- 配置数据库链接池 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
@@ -98,9 +108,28 @@
 		<property name="exceptionMappings">
 			<props>
 				<!-- 当捕捉到UserException异常之后,跳转到error页面 -->
-				<prop key="store.eazychian.wtx.exception.SSMException">error</prop>
+				<prop key="store.eazychina.wtx.exception.SSMException">error</prop>
 			</props>
 		</property>
 	</bean>
+	<!-- 配置邮件自动发送,读取qq邮箱属性 
+		<context:property-placeholder location="classpath:email.properties"/>
+	-->
+	
+	<!--配置邮件接口-->
+    <bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        
+        <property name="host" value="${mail.smtp.host}"/>
+        <property name="username" value="${mail.smtp.username}"/>
+        <property name="password" value="${mail.smtp.password}"/>
+        <property name="defaultEncoding" value="${mail.smtp.defaultEncoding}"/>
+        <property name="javaMailProperties">
+            <props>
+            
+                <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                <prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+            </props>
+        </property>
+    </bean>
 </beans>     		
         		
